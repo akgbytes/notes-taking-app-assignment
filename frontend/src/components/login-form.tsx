@@ -12,6 +12,7 @@ import { toast } from "sonner";
 
 import { FaGoogle } from "react-icons/fa";
 import { authClient } from "@/lib/auth-client";
+import { Loader2 } from "lucide-react";
 
 export function LoginForm({
   className,
@@ -50,15 +51,23 @@ export function LoginForm({
             <div className="grid gap-6">
               <div className="flex flex-col gap-4">
                 <Button
-                  variant="secondary"
                   className="w-full cursor-pointer"
                   onClick={() => {
                     onSocial("google");
                   }}
                   disabled={loading}
                 >
-                  <FaGoogle className="size-4" />
-                  Login with Google
+                  {loading ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin" />
+                      <span>Loading...</span>
+                    </>
+                  ) : (
+                    <>
+                      <FaGoogle className="size-4" />
+                      <span>Login with Google</span>
+                    </>
+                  )}
                 </Button>
               </div>
             </div>

@@ -23,7 +23,7 @@ const LoginPage = () => {
     <Navigate to="/" replace />
   ) : (
     <div className="flex items-center justify-center min-h-screen w-full">
-      <LoginForm />
+      <LoginForm className="min-w-md" />
     </div>
   );
 };
