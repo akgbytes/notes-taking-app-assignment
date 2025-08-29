@@ -24,9 +24,11 @@ app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json());
 
 import healthRoute from "@/routes/health.route";
+import notesRoute from "@/routes/notes.route";
 import { errorHandler } from "@/middlewares/error.middleware";
 
 app.use("/api/v1/health", healthRoute);
+app.use("/api/v1/notes", notesRoute);
 app.use(errorHandler);
 
 export default app;
