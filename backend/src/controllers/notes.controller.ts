@@ -47,6 +47,7 @@ export const getNote = asyncHandler(async (req, res) => {
 
 export const getAllNotes = asyncHandler(async (req, res) => {
   const user = req.user;
+  console.log("user from db: ", user);
 
   const notes = await prisma.note.findMany({
     where: { userId: user.id },

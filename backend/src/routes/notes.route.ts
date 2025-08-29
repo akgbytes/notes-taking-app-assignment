@@ -6,8 +6,11 @@ import {
   updateNote,
   deleteNote,
 } from "@/controllers/notes.controller";
+import { isLoggedIn } from "@/middlewares/auth.middleware";
 
 const router = Router();
+
+router.use(isLoggedIn);
 
 router.post("/", createNote);
 router.get("/", getAllNotes);

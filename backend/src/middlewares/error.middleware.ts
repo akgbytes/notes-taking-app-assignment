@@ -12,7 +12,7 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ): void => {
-  console.log("Error from middleware: ", error.message ? error.message : error);
+  console.log("Error from middleware: ", error);
 
   let apiError: ApiError;
 
