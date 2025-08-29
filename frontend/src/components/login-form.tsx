@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -20,19 +19,17 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const onSocial = (provider: "google") => {
     setLoading(true);
     authClient.signIn.social(
       {
         provider,
-        callbackURL: "/",
+        callbackURL: `${import.meta.env.VITE_FRONTEND_URL}`,
       },
       {
         onSuccess: () => {
           setLoading(false);
-          navigate("/");
           toast.success("Logged in successfully");
         },
         onError: () => {
