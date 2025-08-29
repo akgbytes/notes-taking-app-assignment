@@ -8,7 +8,7 @@ export class ApiError<T = unknown> extends Error {
     super(message);
     this.success = false;
     this.data = data;
-    this.name = "Api Error";
+    this.name = "ApiError";
     Error.captureStackTrace(this, this.constructor);
   }
 }
